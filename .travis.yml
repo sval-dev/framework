@@ -20,4 +20,4 @@ script:
      - cmake .. 
      - make
      - make install
-	 - make unit_test
+     - make unit_test

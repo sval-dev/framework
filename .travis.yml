@@ -15,6 +15,7 @@ env:
 
 install:
     - sudo apt-add-repository --yes ppa:ubuntu-toolchain-r/test
+    - sudo add-apt-repository --yes "deb http://archive.ubuntu.com/ubuntu trusty universe"
     - sudo apt-get update
     - sudo apt-get install gcc-4.8 gfortran-4.8 libeigen3-dev hdf5
     - wget http://launchpadlibrarian.net/229058765/libgsl2_2.1+dfsg-2_amd64.deb  

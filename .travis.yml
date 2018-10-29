@@ -16,7 +16,11 @@ env:
 install:
     - sudo apt-add-repository --yes ppa:ubuntu-toolchain-r/test
     - sudo apt-get update
-    - sudo apt-get install gcc-4.8 gfortran-4.8 gsl-bin libgsl0ldbl
+    - sudo apt-get install gcc-4.8 gfortran-4.8
+    - wget http://launchpadlibrarian.net/229058765/libgsl2_2.1+dfsg-2_amd64.deb  
+    - sudo dpkg -i libgsl2_2.1+dfsg-2_amd64.deb
+    - wget http://launchpadlibrarian.net/229058764/libgsl-dev_2.1+dfsg-2_amd64.deb
+    - sudo dpkg -i libgsl-dev_2.1+dfsg-2_amd64.deb
 
 script:
     ############################################################################

@@ -16,7 +16,7 @@ env:
 install:
     - sudo apt-add-repository --yes ppa:ubuntu-toolchain-r/test
     - sudo apt-get update
-    - sudo apt-get install swig3.0 gcc-4.8 gfortran-4.8 libeigen3-dev libhdf5-dev hdf5-tools libboost-all-dev zlib1g doxygen graphviz
+    - sudo apt-get install swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools libboost-all-dev zlib1g doxygen graphviz
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgslcblas0_2.4+dfsg-6_amd64.deb
     - sudo dpkg -i libgslcblas0_2.4+dfsg-6_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgsl23_2.4+dfsg-6_amd64.deb
@@ -25,6 +25,8 @@ install:
     - sudo dpkg -i libgsl-dev_2.4+dfsg-6_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.10-1.2_amd64.deb
     - sudo dpkg -i swig3.0_3.0.10-1.2_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/universe/e/eigen3/libeigen3-dev_3.3.4-4build1_all.deb
+    - sudo dpkg -i libeigen3-dev_3.3.4-4build1_all.deb
 
 script:
     ############################################################################
@@ -32,7 +34,7 @@ script:
     ############################################################################
      - mkdir -p build
      - cd build
-     - ls /usr/lib/x86_64-linux-gnu/libpython3*
+     - ls -alR /home/travis/virtualenv/python3.6.3/lib/
      - cmake .. 
      - make
      - make install

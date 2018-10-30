@@ -26,7 +26,7 @@ install:
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/s/swig/swig3.0_3.0.10-1.2_amd64.deb
     - sudo dpkg -i swig3.0_3.0.10-1.2_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/e/eigen3/libeigen3-dev_3.3.4-4_all.deb
-    - sudo dpkg -i libeigen3-dev_3.3.4-4build1_all.deb
+    - sudo dpkg -i libeigen3-dev_3.3.4-4_all.deb
 
 script:
     ############################################################################

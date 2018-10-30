@@ -21,7 +21,7 @@ install:
     - sudo dpkg -i libgsl2_2.1+dfsg-2_amd64.deb
     - wget http://launchpadlibrarian.net/229058764/libgsl-dev_2.1+dfsg-2_amd64.deb
     - sudo dpkg -i libgsl-dev_2.1+dfsg-2_amd64.deb
-    - sudo pip3 install numpy
+    - sudo pip install numpy
 
 script:
     ############################################################################

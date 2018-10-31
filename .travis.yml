@@ -16,7 +16,7 @@ env:
 install:
     - sudo apt-add-repository --yes ppa:ubuntu-toolchain-r/test
     - sudo apt-get update
-    - sudo apt-get install -y swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools zlib1g doxygen graphviz dpkg libicu-dev libbz2-1.0
+    - sudo apt-get install -y swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools zlib1g doxygen graphviz dpkg libicu-dev libbz2-1.0 libstdc++6
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgslcblas0_2.4+dfsg-6_amd64.deb
     - sudo dpkg -i libgslcblas0_2.4+dfsg-6_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgsl23_2.4+dfsg-6_amd64.deb

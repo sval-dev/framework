@@ -34,8 +34,7 @@ script:
     ############################################################################
      - mkdir -p build
      - cd build
-     - sudo find / -name 'libpython3*.so' 2>/dev/null
-     - cmake ..
+     - cmake -DPYTHON_LIBRARY=/opt/python/3.6.3/lib/libpython3.6m.so ..
      # Build times out if we try to go through make 
      # - make
      # - make install

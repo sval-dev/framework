@@ -16,7 +16,7 @@ env:
 install:
     - sudo apt-add-repository --yes ppa:ubuntu-toolchain-r/test
     - sudo apt-get update
-    - sudo apt-get install -y swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools libboost-all-dev zlib1g doxygen graphviz dpkg
+    - sudo apt-get install -y swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools zlib1g doxygen graphviz dpkg libicu-dev libbz2-1.0
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgslcblas0_2.4+dfsg-6_amd64.deb
     - sudo dpkg -i libgslcblas0_2.4+dfsg-6_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgsl23_2.4+dfsg-6_amd64.deb
@@ -27,6 +27,22 @@ install:
     - sudo dpkg -i swig3.0_3.0.10-1.2_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/e/eigen3/libeigen3-dev_3.3.4-3_all.deb
     - sudo dpkg -i libeigen3-dev_3.3.4-3_all.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-serialization1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-serialization1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-date-time1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-date-time1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-system1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-system1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-filesystem1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-filesystem1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-regex1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-regex1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-iostreams1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-iostreams1.67-dev_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-test1.67.0_1.67.0-7_amd64.deb
+    - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-test1.67-dev_1.67.0-7_amd64.deb
+    - sudo dpkg -i libboost*.deb
 
 script:
     ############################################################################

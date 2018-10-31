@@ -16,7 +16,7 @@ env:
 install:
     - sudo apt-add-repository --yes ppa:ubuntu-toolchain-r/test
     - sudo apt-get update
-    - sudo apt-get install -y swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools libboost-all-dev zlib1g doxygen graphviz dpkg liblua5.2-0 liblua5.2-dev
+    - sudo apt-get install -y swig3.0 gcc-4.8 gfortran-4.8 libhdf5-dev hdf5-tools libboost-all-dev zlib1g doxygen graphviz dpkg
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgslcblas0_2.4+dfsg-6_amd64.deb
     - sudo dpkg -i libgslcblas0_2.4+dfsg-6_amd64.deb
     - wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gsl/libgsl23_2.4+dfsg-6_amd64.deb
@@ -35,6 +35,6 @@ script:
      - mkdir -p build
      - cd build
      - cmake -DPYTHON_LIBRARY=/opt/python/3.6.3/lib/libpython3.6m.so ..
-     - make -j 2 VERBOSE=1
+     - make VERBOSE=1
      - make install
      - make unit_test

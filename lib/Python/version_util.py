@@ -125,9 +125,6 @@ def _get_git_version(source_path):
         wdir_modified = None
 
     os.chdir(prev_dir)
-    print("git_branch type {}".format(type(git_branch)))
-    print("git_ver type {}".format(type(git_ver)))
-    print("wdir_modified type {}".format(type(wdir_modified)))
     return b"GIT-" + git_branch + b'-' + git_ver + wdir_modified
 
 def source_version(source_path):

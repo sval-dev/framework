@@ -60,6 +60,6 @@ script:
      - mkdir -p build
      - cd build
      - cmake -DPYTHON_LIBRARY=/opt/python/3.6.3/lib/libpython3.6m.so ..
-     # - make VERBOSE=1
-     # - make install
-     # - make unit_test
+     - make VERBOSE=1
+     - make install
+     - make unit_test

@@ -36,22 +36,17 @@ install:
     - ./b2 >boost_build.log 2>&1 
     - sudo ./b2 install >boost_install.log 2>&1
     - popd
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-serialization1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-serialization1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-date-time1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-date-time1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-system1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-system1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-filesystem1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-filesystem1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-regex1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-regex1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/main/b/boost1.67/libboost-iostreams1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-iostreams1.67-dev_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-test1.67.0_1.67.0-7_amd64.deb
-    # - wget http://mirrors.kernel.org/ubuntu/pool/universe/b/boost1.67/libboost-test1.67-dev_1.67.0-7_amd64.deb
-    # - sudo dpkg -i libboost*.deb
+    - mkdir /tmp/test_data
+    - pushd /tmp/test_data
+    - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/absco.tar.gz-partaa &
+    - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/absco.tar.gz-partab &
+    - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/absco.tar.gz-partac &
+    - wait cat absco.tar.gz-parta* | tar -xz
+    - cat absco.tar.gz-parta* | tar -xz &
+    - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/merra.tar.gz-partaa &
+    - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/merra.tar.gz-partab &
+    - wait
+    - cat merra.tar.gz-parta* | tar -xz
 
 script:
     ############################################################################
@@ -59,7 +54,7 @@ script:
     ############################################################################
      - mkdir -p build
      - cd build
-     - cmake -DPYTHON_LIBRARY=/opt/python/3.6.3/lib/libpython3.6m.so ..
+     - cmake -DPYTHON_LIBRARY=/opt/python/3.6.3/lib/libpython3.6m.so -DABSCO_DIR=/tmp/test_data/absco -DMERRA_DIR=/tmp/test_data/merra    ..
      - make VERBOSE=1
      - make install
      - make unit_test

@@ -52,7 +52,7 @@ install:
     - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/absco.tar.gz-partaa &
     - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/absco.tar.gz-partab &
     - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/absco.tar.gz-partac &
-    - wait cat absco.tar.gz-parta* | tar -xz
+    - wait 
     - cat absco.tar.gz-parta* | tar -xz &
     - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/merra.tar.gz-partaa &
     - wget https://github.com/ReFRACtor/framework_testdata/releases/download/v1.0/merra.tar.gz-partab &

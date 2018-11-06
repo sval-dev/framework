@@ -42,7 +42,7 @@ install:
     - tar -zxf boost_1_67_0.tar.gz
     - pushd boost_1_67_0
     - ./bootstrap.sh --with-libraries=date_time,filesystem,iostreams,regex,serialization,system,test >boost_bs_install.log 2>&1
-    - ./b2 >boost_build.log 2>&1 
+    - ./b2 toolset=gcc cxxflags="-std=c++11" linkflags="-std=c++11" >boost_build.log 2>&1 
     - sudo ./b2 install >boost_install.log 2>&1
     - popd
     #

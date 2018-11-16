@@ -6,7 +6,7 @@ using namespace blitz;
 #ifdef HAVE_LUA
 #include "register_lua.h"
 
-REGISTER_LUA_DERIVED_CLASS(DispersionPolynomial, Dispersion)
+REGISTER_LUA_DERIVED_CLASS(DispersionPolynomial, SampleGrid)
 .def(luabind::constructor<const blitz::Array<double, 1>&, 
 			  const blitz::Array<bool, 1>&,
 			  const std::string&,
@@ -28,7 +28,7 @@ DispersionPolynomial::DispersionPolynomial
  const std::string& Band_name,
  int Number_pixel,
  bool Is_one_based)
-: SubStateVectorArray<Dispersion>(Coeff, Used_flag),
+: SubStateVectorArray<SampleGrid>(Coeff, Used_flag),
   is_one_based(Is_one_based),
   coeff_unit(Coeff_unit),
   band_name_(Band_name),
@@ -50,7 +50,7 @@ DispersionPolynomial::DispersionPolynomial
  const std::string& Coeff_unit_name,
  const std::string& Band_name,
  int Number_pixel, bool Is_one_based)
-: SubStateVectorArray<Dispersion>(Coeff, Used_flag),
+: SubStateVectorArray<SampleGrid>(Coeff, Used_flag),
   is_one_based(Is_one_based),
   coeff_unit(Coeff_unit_name),
   band_name_(Band_name),
@@ -87,13 +87,14 @@ DispersionPolynomial::pixel_grid() const
 {
   Poly1d spectral_poly = Poly1d(coeff, false);
   ArrayAd<double, 1> index_array_ad(index_array, coeff.number_variable());
+  index_array_ad.jacobian() = 0;
   SpectralDomain sample_grid = SpectralDomain(spectral_poly(index_array_ad), spectral_index, coeff_unit);
   return sample_grid;
 }
 
-boost::shared_ptr<Dispersion> DispersionPolynomial::clone() const
+boost::shared_ptr<SampleGrid> DispersionPolynomial::clone() const
 {
-  return boost::shared_ptr<Dispersion>
+  return boost::shared_ptr<SampleGrid>
     (new DispersionPolynomial(coeff.value(), used_flag, coeff_unit,
 			      band_name_, index_array.rows(),
 			      is_one_based));

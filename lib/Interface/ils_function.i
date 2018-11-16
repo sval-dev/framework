@@ -1,6 +1,3 @@
-// -*- mode: c++; -*-
-// (Not really c++, but closest emacs mode)
-
 %include "common.i"
 
 %{
@@ -14,6 +11,9 @@
 %fp_shared_ptr(FullPhysics::IlsFunction);
 
 namespace FullPhysics {
+
+%feature("director") IlsFunction;
+
 class IlsFunction : public GenericObject {
 public:
   virtual ~IlsFunction();
@@ -21,7 +21,10 @@ public:
   virtual void ils
   (const AutoDerivative<double>& wn_center,
    const blitz::Array<double, 1>& wn, ArrayAd<double, 1>& OUTPUT) const = 0;
-  %python_attribute(band_name, virtual std::string);
-  %python_attribute(hdf_band_name, virtual std::string);
+
+  // Needed for directors, can not use %python_attribute here or else there will
+  // be missing symbol problems in the director
+  virtual std::string band_name() const = 0;
+  virtual std::string hdf_band_name() const;
 };
 }
